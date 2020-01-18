@@ -1,0 +1,78 @@
+MODEL:
+  DEVICE: "cuda"
+  NAME: 'mfn'
+  BACKBONE: 'resnet50_ibn_a'
+  LAST_STRIDE: 1
+  LABEL_SMOOTH: True
+  USE_DROPOUT: False
+  PRETRAIN_PATH: '../weights/models/r50_ibn_a.pth'
+  MFN:
+      POOL_TYPE: 'avg'
+INPUT:
+  SIZE_TRAIN: [256, 128]
+  SIZE_TEST: [256, 128]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.5 # random erasing
+  RE_MAX_RATIO: 0.2
+  PADDING: 10
+  PIXEL_MEAN: [0.09661545, 0.18356957, 0.21322473]
+  PIXEL_STD: [0.13422933, 0.14724616, 0.19259872]
+  NORMALIZATION: True
+DATASETS:
+  NAMES: ('competition')
+  DATA_PATH: '/share/Dataset/PReID/pre/'
+  TRAIN_PATH: 'train'
+  QUERY_PATH: 'query'
+  GALLERY_PATH: 'gallery'
+
+DATALOADER:
+  SAMPLER: 'softmax_triplet'
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 2
+
+SOLVER:
+  OPTIMIZER_NAME: "SGD"
+  FP16: False
+
+  SYNCBN: False
+
+
+  BASE_LR: 0.03
+  BIAS_LR_FACTOR: 1
+
+  MOMENTUM: 0.9
+
+  MARGIN: 0.5
+
+  WEIGHT_DECAY: 5e-4
+  WEIGHT_DECAY_BIAS: 5e-4
+
+  GAMMA: 0.1
+  STEPS: [60, 120]
+
+  WARMUP_FACTOR: 0.01 
+  WARMUP_EPOCH: 10
+  WARMUP_BEGAIN_LR: 3e-04
+  WARMUP_METHOD: "linear"
+
+  MAX_EPOCHS: 250
+  CHECKPOINT_PERIOD: 2
+  LOG_PERIOD: 100
+  EVAL_PERIOD: 2
+  START_SAVE_EPOCH: 120
+
+  IMS_PER_BATCH: 64
+TEST:
+  IMS_PER_BATCH: 64
+  WEIGHT: ""
+  DEBUG: False
+  MULTI_GPU: False
+  CMC: [1,5,10]
+  VIS: False
+  VIS_Q_NUM: 10
+  VIS_G_NUM: 5
+  RERANK: False
+
+OUTPUT_DIR: "../work_dirs/baseline/"
+
+
