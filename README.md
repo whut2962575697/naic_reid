@@ -84,13 +84,13 @@ In order to run this project you will need:
 | baseline | 384x192 | resnet101-ibn | avg + cosface + cj | 0.80346376 |
 | baseline | 384x192 | resnet101-ibn | avg + cosface + cj + all_data | 0.80577292 |
 | baseline | 384x192 | resnet101-ibn | avg + cosface + cj05 + all_data | 0.80686313 |
-| baseline | 384x192 | resnet101-ibn | avg + arcfaceface + cj05 + all_data | 0.819 |
+| baseline | 384x192 | resnet101-ibn | avg + arcface + cj05 + all_data | 0.819 |
 
 
 ## Test B public
 | model | size | backbone | trick | performance |
 | :-----| ----: | :----: | :----: | :----: |
-| baseline | 384x192 | resnet101-ibn | (avg + arcfaceface + cj05 + all_data) + (avg + arcfaceface + cj05 + all_data + pseudo label) ensemble | 0.81488409 |
+| baseline | 384x192 | resnet101-ibn | (avg + arcface + cj05 + all_data) + (avg + arcface + cj05 + all_data + pseudo label) ensemble | 0.81488409 |
 
 ## Test B private 
 0.80066173
