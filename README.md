@@ -99,6 +99,9 @@ In order to run this project you will need:
 
 
 # Implementation
+## premodels download
+you can follow this project https://github.com/XingangPan/IBN-Net
+premodels can be download here:https://drive.google.com/open?id=1thS2B8UOSBi_cJX6zRy6YYRwz_nVFI_S
 ## prepare_data
 you can put the data in rep_dir, and get the result data in save_dir
 ### split 0.85 train data
