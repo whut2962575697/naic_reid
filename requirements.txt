@@ -1,7 +1,7 @@
 pandas==0.25.1
 hickle==3.4.5
 tqdm==4.36.1
-opencv_python==4.1.1.26
+opencv_python==4.2.0.32
 scikit_image==0.15.0
 mlconfig==0.0.4
 visdom==0.1.8.9
